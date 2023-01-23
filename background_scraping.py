@@ -101,8 +101,6 @@ def get_movie_info(movie):
 for movie in movie_list:
     get_movie_info(movie)
 
-driver.quit()
-
 with open('movies.json', 'w') as final:
     json.dump(movies_array, final, indent=2) 
 
