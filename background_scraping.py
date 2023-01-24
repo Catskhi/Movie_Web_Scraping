@@ -16,8 +16,9 @@ movies_array = []
 def get_movie_poster(movie, driver):
     print('- Getting the ' + movie + ' poster...\n')
     driver.get('https://www.google.com.br/imghp?hl=pt-BR&ogbl')
+    sleep(3)
     search_input = driver.find_element('xpath', '/html/body/div[1]/div[3]/form/div[1]/div[1]/div[1]/div/div[2]/input')
-    search_input.send_keys(movie + ' art poster hd')
+    search_input.send_keys(movie + ' poster hd')
     search_input.send_keys(Keys.RETURN)
 
     driver.find_element('xpath', '/html/body/div[2]/c-wiz/div[3]/div[1]/div/div/div/div/div[1]/div[1]/span/div[1]/div[1]/div[1]/a[1]/div[1]/img').click()
@@ -29,6 +30,7 @@ def get_movie_poster(movie, driver):
 def get_movie_trailer(movie, driver):
     print('- Getting the ' + movie + ' trailer...\n')
     driver.get('https://www.youtube.com/')
+    sleep(3)
     driver.find_element('xpath', '//*[@id="search-input"]/input').send_keys(movie + ' trailer HD')
     driver.find_element('xpath', '//*[@id="search-icon-legacy"]').click()
     sleep(3)
@@ -100,6 +102,7 @@ def get_movie_info(movie):
 
 for movie in movie_list:
     get_movie_info(movie)
+
 
 with open('movies.json', 'w') as final:
     json.dump(movies_array, final, indent=2) 

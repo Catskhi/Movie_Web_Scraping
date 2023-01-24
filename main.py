@@ -16,7 +16,7 @@ driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()))
 def get_movie_poster(movie):
     driver.get('https://www.google.com.br/imghp?hl=pt-BR&ogbl')
     search_input = driver.find_element('xpath', '/html/body/div[1]/div[3]/form/div[1]/div[1]/div[1]/div/div[2]/input')
-    search_input.send_keys(movie + ' art poster hd')
+    search_input.send_keys(movie + ' poster hd')
     search_input.send_keys(Keys.RETURN)
 
     driver.find_element('xpath', '/html/body/div[2]/c-wiz/div[3]/div[1]/div/div/div/div/div[1]/div[1]/span/div[1]/div[1]/div[1]/a[1]/div[1]/img').click()
