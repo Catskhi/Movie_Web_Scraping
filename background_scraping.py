@@ -7,9 +7,16 @@ from time import sleep
 import json
 import undetected_chromedriver as uc
 
-movie_list = ['Fight Club', 'Blade Runner 2049', 'Taxi Driver', 'Drive', 'American Psycho',
-    'The Batman'
+movie_list = [
 ]
+
+def getMoviesFromList(movie_file_path):
+    file = open(movie_file_path, 'r')
+    file_content = file.readlines()
+    for movie in file_content:
+        movie_list.append(movie)
+
+getMoviesFromList('./movies.txt')
 
 movies_array = []
 
