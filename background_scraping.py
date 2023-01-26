@@ -14,8 +14,7 @@ def getMoviesFromList(movie_file_path):
     file = open(movie_file_path, 'r')
     file_content = file.readlines()
     for movie in file_content:
-        movie.replace('\n', '')
-        movie_list.append(movie)
+        movie_list.append(movie.replace('\n', ''))
 
 getMoviesFromList('./movies.txt')
 
